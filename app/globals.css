@@ -1,26 +1,104 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: #ffffff;
+  --color-foreground: #222222;
+  --color-muted: #888888;
+  --color-border: #e8e8e8;
+  --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* +2pt (~2px) from default scale */
+  --text-xs: 0.875rem;
+  --text-sm: 1rem;
+  --text-base: 1.125rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.375rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* Wide content area */
+.page-main {
+  padding: 1.5rem 1rem;
+}
+
+@media (min-width: 1024px) {
+  .page-main {
+    padding: 2rem 1.25rem;
+  }
+}
+
+/* Photo-centric project grid — tight gaps */
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 10px;
+  row-gap: 20px;
+}
+
+@media (min-width: 640px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .project-grid {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 12px;
+    row-gap: 24px;
+  }
+}
+
+/* Editorial text link */
+.text-link {
+  font-size: 15px;
+  color: var(--color-muted);
+  transition: color 0.15s;
+}
+
+.text-link:hover {
+  color: var(--color-foreground);
+}
+
+.text-link-active {
+  color: var(--color-foreground);
+  font-weight: 500;
+}
+
+.prose-content {
+  max-width: 40rem;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.prose-content p {
+  margin-bottom: 1rem;
+}
+
+::selection {
+  background: #222;
+  color: #fff;
 }
