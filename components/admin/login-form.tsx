@@ -11,7 +11,7 @@ const ERROR_MESSAGES: Record<string, string> = {
   no_profile: "프로필 정보를 불러올 수 없습니다. 관리자에게 문의해 주세요.",
   not_admin: "관리자 권한이 없습니다.",
   supabase_not_configured:
-    "Supabase 설정이 없습니다. .env.local 파일을 확인해 주세요.",
+    "Supabase 환경 변수가 설정되지 않았습니다. Vercel(또는 .env.local)에서 NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY를 확인해 주세요.",
   server_error: "로그인 중 오류가 발생했습니다.",
 };
 

@@ -62,7 +62,6 @@ export const DEFAULT_SITE_SETTINGS: SiteSettings = {
   ],
   services: ["건축", "인테리어", "리모델링", "방수공사", "상업공간", "주거공간"],
   processSteps: [
-    "Consultation",
     "Site Visit",
     "Estimate",
     "Contract",

@@ -19,9 +19,7 @@ export default async function AboutPage() {
       <div className="max-w-2xl space-y-10">
         {/* Company */}
         <section>
-          <p className="text-xs text-muted">{settings.companyNameEn}</p>
-          <p className="mt-1 text-sm">{settings.companyName}</p>
-          <p className="mt-6 whitespace-pre-line text-sm leading-relaxed">
+          <p className="whitespace-pre-line text-sm leading-relaxed">
             {aboutContent.greeting}
           </p>
         </section>

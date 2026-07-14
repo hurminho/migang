@@ -13,15 +13,8 @@ export const publicNavItems: PublicNavItem[] = [
   {
     href: "/projects",
     label: "Projects",
-    isActive: (pathname, searchParams) =>
-      (pathname === "/projects" && !searchParams.get("category")) ||
-      (pathname.startsWith("/projects/") && pathname !== "/projects"),
-  },
-  {
-    href: "/projects?category=interior",
-    label: "Interior",
-    isActive: (pathname, searchParams) =>
-      pathname === "/projects" && searchParams.get("category") === "interior",
+    isActive: (pathname) =>
+      pathname === "/projects" || pathname.startsWith("/projects/"),
   },
   {
     href: "/contact",
