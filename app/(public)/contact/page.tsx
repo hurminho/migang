@@ -1,6 +1,5 @@
 import { ContactForm } from "@/components/forms/contact-form";
 import { getCategories } from "@/lib/data/projects";
-import { getSiteSettings } from "@/lib/data/site-settings";
 
 export const metadata = {
   title: "Request a Estimate",
@@ -8,22 +7,18 @@ export const metadata = {
 };
 
 export default async function ContactPage() {
-  const [settings, categories] = await Promise.all([
-    getSiteSettings(),
-    getCategories(),
-  ]);
+  const categories = await getCategories();
 
   return (
     <div className="page-main">
-      <div className="grid gap-16 lg:grid-cols-[240px_1fr]">
-        <div>
-          <p className="text-xs tracking-[0.08em] text-muted uppercase">Contact</p>
-          <p className="mt-6 text-sm leading-relaxed text-muted">
-            프로젝트 상담을 원하시면 아래 양식을 작성해 주세요.
-          </p>
+      <div className="max-w-lg">
+        <p className="text-xs tracking-[0.08em] text-muted uppercase">Contact</p>
+        <p className="mt-6 text-sm leading-relaxed text-muted">
+          프로젝트 상담을 원하시면 아래 양식을 작성해 주세요.
+        </p>
+        <div className="mt-10">
+          <ContactForm categories={categories} />
         </div>
-
-        <ContactForm categories={categories} />
       </div>
     </div>
   );

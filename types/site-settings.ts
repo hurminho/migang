@@ -50,7 +50,7 @@ export const DEFAULT_SITE_SETTINGS: SiteSettings = {
   naverBlogUrl: "https://m.blog.naver.com/PostList.naver?blogId=jwcbsmg&tab=1",
   serviceAreas: "서울, 경기, 대구",
   heroTitle:
-    "We identify spatial issues accurately\nand deliver results built to last.",
+    "We identify spatial issues accurately and deliver results built to last.",
   heroSubtitle: "Architecture · Interior · Remodeling",
   heroImage: "/heroimage-1.jpeg",
   aboutText:

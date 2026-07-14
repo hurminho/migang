@@ -9,13 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { cn } from "@/lib/utils";
 import {
   inquiryFormSchema,
   type InquiryFormValues,
@@ -158,21 +152,23 @@ export function ContactForm({ categories }: ContactFormProps) {
         </div>
         <div className="space-y-2">
           <Label htmlFor="category_id">공사 유형</Label>
-          <Select
-            value={form.watch("category_id") || undefined}
-            onValueChange={(v) => form.setValue("category_id", v ?? undefined)}
+          <select
+            id="category_id"
+            value={form.watch("category_id") || ""}
+            onChange={(event) =>
+              form.setValue("category_id", event.target.value || undefined)
+            }
+            className={cn(
+              "h-8 w-full min-w-0 rounded-lg border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 md:text-sm dark:bg-input/30",
+            )}
           >
-            <SelectTrigger>
-              <SelectValue placeholder="선택" />
-            </SelectTrigger>
-            <SelectContent>
-              {categories.map((cat) => (
-                <SelectItem key={cat.id} value={cat.id}>
-                  {cat.name}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+            <option value="">선택</option>
+            {categories.map((cat) => (
+              <option key={cat.id} value={cat.id}>
+                {cat.name}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
 
