@@ -38,7 +38,7 @@ export interface SiteSettings {
 }
 
 export const DEFAULT_SITE_SETTINGS: SiteSettings = {
-  companyName: "미강건축",
+  companyName: "미강건축 MIGANG ARCHITECTS",
   companyNameEn: "MIGANG ARCHITECTS",
   representative: "최윤환",
   businessNumber: "219-03-78423",
@@ -75,7 +75,7 @@ export const DEFAULT_SITE_SETTINGS: SiteSettings = {
   clarityId: "",
   naverVerification: "",
   googleVerification: "",
-  footerCopyright: "© 2026 미강건축. All rights reserved.",
+  footerCopyright: "© 2021 미강건축. All rights reserved.",
   footerBusinessInfo:
     "미강건축 | 대표 최윤환 | 사업자등록번호 219-03-78423",
   privacyPolicy: "",

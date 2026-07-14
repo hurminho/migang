@@ -1,8 +1,8 @@
 const departments = [
-  "Construtors",
-  "Contrators",
-  "Buyers",
-  "Officers",
+  { role: "Construtors", members: ["최병쇠", "최윤환"] },
+  { role: "Contrators", members: ["배기현"] },
+  { role: "Buyers", members: ["최은신"] },
+  { role: "Officers", members: ["최은슬"] },
 ] as const;
 
 interface OrgChartProps {
@@ -18,10 +18,11 @@ export function OrgChart({ ceoName }: OrgChartProps) {
           <p className="font-medium">CEO</p>
           {ceoName && <p className="mt-0.5 text-muted">{ceoName}</p>}
         </div>
-        <ul className="mt-4 space-y-2 border-l border-border pl-4">
-          {departments.map((role) => (
-            <li key={role} className="text-muted">
-              {role}
+        <ul className="mt-4 space-y-3 border-l border-border pl-4">
+          {departments.map(({ role, members }) => (
+            <li key={role}>
+              <p className="font-medium">{role}</p>
+              <p className="mt-0.5 text-muted">{members.join(", ")}</p>
             </li>
           ))}
         </ul>
