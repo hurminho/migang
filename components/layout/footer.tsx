@@ -7,10 +7,6 @@ export async function Footer() {
   return (
     <footer className="page-main border-t border-border">
       <div className="flex flex-col gap-4 text-xs text-muted sm:flex-row sm:justify-between">
-        <div>
-          <p>{settings.companyName}</p>
-          <p className="mt-1">{settings.phone}</p>
-        </div>
         <div className="flex gap-4">
           <Link href="/about" className="text-link">
             About
