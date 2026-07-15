@@ -37,24 +37,27 @@ export interface SiteSettings {
   };
 }
 
-export const DEFAULT_SITE_SETTINGS: SiteSettings = {
+/**
+ * Site content settings — edit this file and redeploy.
+ * Public site reads from here, not Supabase site_settings.
+ */
+export const SITE_SETTINGS: SiteSettings = {
   companyName: "미강 인테리어",
-  companyNameEn: "MIGANG ARCHITECTS",
+  companyNameEn: "MIGANG INTERIOR",
   representative: "최윤환",
   businessNumber: "219-03-78423",
-  phone: "010-6786-1204",
-  email: "qkstmwja@naver.com",
+  phone: "010-9511-3221",
+  email: "migang0482@gmail.com",
   address: "대구광역시 달성군 옥포읍 본리로 20길 18-3, 1동",
   kakaoUrl: "https://pf.kakao.com/_example",
   instagramUrl: "",
   naverBlogUrl: "https://m.blog.naver.com/PostList.naver?blogId=jwcbsmg&tab=1",
   serviceAreas: "서울, 경기, 대구",
-  heroTitle:
-    "We identify spatial issues accurately and deliver results built to last.",
+  heroTitle: "공간의 본질을 정확히 이해하고, 오래도록 가치 있는 결과를 만듭니다.",
   heroSubtitle: "Architecture · Interior · Remodeling",
   heroImage: "/heroimage-1.jpeg",
   aboutText:
-    "Migang Architects specializes in design and construction for residential and commercial spaces.",
+    "We understand the true needs of every space and create results designed to last.",
   strengths: [
     "Accurate estimates and schedule management based on site conditions",
     "Consistent quality control from material selection to finishing",
@@ -62,6 +65,7 @@ export const DEFAULT_SITE_SETTINGS: SiteSettings = {
   ],
   services: ["건축", "인테리어", "리모델링", "방수공사", "상업공간", "주거공간"],
   processSteps: [
+    "Consultation",
     "Site Visit",
     "Estimate",
     "Contract",
@@ -77,7 +81,7 @@ export const DEFAULT_SITE_SETTINGS: SiteSettings = {
   googleVerification: "",
   footerCopyright: "© 2020 미강 인테리어. All rights reserved.",
   footerBusinessInfo:
-    "미강 인테리어 | 대표 최윤환 | 사업자등록번호 219-03-78423",
+    "미강 인테리어 MIGANG INTERIOR | 대표 최윤환 | 사업자등록번호 219-03-78423",
   privacyPolicy: "",
   aboutContent: {
     greeting: "안녕하세요, 미강 인테리어 대표 최윤환입니다.",
@@ -89,34 +93,5 @@ export const DEFAULT_SITE_SETTINGS: SiteSettings = {
   },
 };
 
-export const SITE_SETTING_KEYS = {
-  companyName: "company_name",
-  companyNameEn: "company_name_en",
-  representative: "representative",
-  businessNumber: "business_number",
-  phone: "phone",
-  email: "email",
-  address: "address",
-  kakaoUrl: "kakao_url",
-  instagramUrl: "instagram_url",
-  naverBlogUrl: "naver_blog_url",
-  serviceAreas: "service_areas",
-  heroTitle: "hero_title",
-  heroSubtitle: "hero_subtitle",
-  heroImage: "hero_image",
-  aboutText: "about_text",
-  strengths: "strengths",
-  services: "services",
-  processSteps: "process_steps",
-  siteTitle: "site_title",
-  siteDescription: "site_description",
-  ogImage: "og_image",
-  gaId: "ga_id",
-  clarityId: "clarity_id",
-  naverVerification: "naver_verification",
-  googleVerification: "google_verification",
-  footerCopyright: "footer_copyright",
-  footerBusinessInfo: "footer_business_info",
-  privacyPolicy: "privacy_policy",
-  aboutContent: "about_content",
-} as const;
+/** @deprecated Use SITE_SETTINGS */
+export const DEFAULT_SITE_SETTINGS = SITE_SETTINGS;

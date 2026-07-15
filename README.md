@@ -137,7 +137,12 @@ public/
 1. `/admin/login`에서 로그인
 2. **프로젝트**: 공사사례 등록/수정/삭제, 이미지 업로드, 공개/임시저장
 3. **문의**: 접수된 상담 확인, 상태 변경, CSV 다운로드
-4. **설정**: 업체 정보, 홈 콘텐츠, SEO, Analytics ID
+4. **설정**: `types/site-settings.ts`에서 업체 정보·홈 콘텐츠·SEO 수정 후 배포
+
+## 사이트 설정
+
+공개 사이트 문구는 **`types/site-settings.ts`** 의 `SITE_SETTINGS` 객체가 기준입니다.  
+Supabase `site_settings` 테이블은 사용하지 않습니다.
 
 ## 보안
 
