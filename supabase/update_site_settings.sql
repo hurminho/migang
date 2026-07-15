@@ -19,10 +19,10 @@ INSERT INTO public.site_settings (key, value) VALUES
   ('strengths', '["Accurate estimates and schedule management based on site conditions", "Consistent quality control from material selection to finishing", "Construction with full responsibility through after-service completion"]'),
   ('services', '["건축", "인테리어", "리모델링", "방수공사", "상업공간", "주거공간"]'),
   ('process_steps', '["Consultation", "Site Visit", "Estimate", "Contract", "Construction", "Final Inspection"]'),
-  ('site_title', '"미강 인테리어 | 건축·인테리어·리모델링"'),
-  ('site_description', '"미강 인테리어은 건축, 인테리어, 리모델링 전문 업체입니다."'),
+  ('site_title', '"미강 인테리어 MIGANG INTERIOR | 건축·인테리어·리모델링"'),
+  ('site_description', '"미강 인테리어는 건축, 인테리어, 리모델링 전문 업체입니다."'),
   ('og_image', '"/placeholders/og.svg"'),
-  ('footer_copyright', '"© 2026 미강 인테리어. All rights reserved."'),
+  ('footer_copyright', '"© 2020 미강 인테리어. All rights reserved."'),
   ('footer_business_info', '"미강 인테리어 | 대표 최윤환 | 사업자등록번호 219-03-78423"'),
   ('about_content', '{"greeting": "안녕하세요, 미강 인테리어 대표 최윤환입니다.", "services": "주거 및 상업공간의 설계·시공", "experience": "50년 경력", "areas": "서울, 경기, 대구", "licenses": "건축사사무소 등록", "principles": "정확한 현장 파악, 투명한 견적"}')
 ON CONFLICT (key) DO UPDATE SET
