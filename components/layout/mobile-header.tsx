@@ -8,9 +8,10 @@ import { publicNavItems } from "@/lib/navigation";
 
 interface MobileHeaderProps {
   companyName: string;
+  companyNameEn: string;
 }
 
-export function MobileHeader({ companyName }: MobileHeaderProps) {
+export function MobileHeader({ companyName, companyNameEn }: MobileHeaderProps) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -19,8 +20,11 @@ export function MobileHeader({ companyName }: MobileHeaderProps) {
   return (
     <>
       <header className="sticky top-0 z-40 flex items-center justify-between bg-white px-4 py-3.5 lg:hidden">
-        <Link href="/" className="text-sm font-medium">
-          {companyName}
+        <Link href="/" className="block">
+          <p className="text-sm font-medium">{companyName}</p>
+          <p className="mt-0.5 text-[12px] tracking-[0.14em] text-muted uppercase">
+            {companyNameEn}
+          </p>
         </Link>
         <button
           type="button"

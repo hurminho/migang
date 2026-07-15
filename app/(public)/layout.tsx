@@ -20,7 +20,10 @@ export default async function PublicLayout({
         />
       </Suspense>
       <Suspense fallback={null}>
-        <MobileHeader companyName={settings.companyName} />
+        <MobileHeader
+          companyName={settings.companyName}
+          companyNameEn={settings.companyNameEn}
+        />
       </Suspense>
       <div className="lg:pl-[220px]">
         <main>{children}</main>
@@ -28,4 +31,4 @@ export default async function PublicLayout({
       </div>
     </div>
   );
-}
+}0

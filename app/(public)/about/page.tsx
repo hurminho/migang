@@ -50,26 +50,6 @@ export default async function AboutPage() {
         {/* Organization */}
         <OrgChart ceoName={settings.representative} />
 
-        {/* Company info */}
-        <section className="space-y-5 border-t border-border pt-8 text-sm">
-          <div>
-            <p className="text-xs text-muted">Experience</p>
-            <p className="mt-1">{aboutContent.experience}</p>
-          </div>
-          <div>
-            <p className="text-xs text-muted">Area</p>
-            <p className="mt-1">{aboutContent.areas || settings.serviceAreas}</p>
-          </div>
-          <div>
-            <p className="text-xs text-muted">License</p>
-            <p className="mt-1">{aboutContent.licenses}</p>
-          </div>
-          <div>
-            <p className="text-xs text-muted">Principles</p>
-            <p className="mt-1 leading-relaxed text-muted">{aboutContent.principles}</p>
-          </div>
-        </section>
-
         {/* Contact */}
         <section className="border-t border-border pt-8">
           <p className="mb-4 text-xs tracking-[0.08em] text-muted uppercase">Contact</p>
