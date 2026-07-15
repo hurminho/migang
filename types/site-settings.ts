@@ -27,14 +27,6 @@ export interface SiteSettings {
   footerCopyright: string;
   footerBusinessInfo: string;
   privacyPolicy: string;
-  aboutContent: {
-    greeting: string;
-    services: string;
-    experience: string;
-    areas: string;
-    licenses: string;
-    principles: string;
-  };
 }
 
 /**
@@ -74,7 +66,7 @@ export const SITE_SETTINGS: SiteSettings = {
   ],
   siteTitle: "미강 인테리어 MIGANG INTERIOR | 건축·인테리어·리모델링",
   siteDescription: "미강 인테리어는 건축, 인테리어, 리모델링 전문 업체입니다.",
-  ogImage: "/placeholders/og.svg",
+  ogImage: "/og.png",
   gaId: "",
   clarityId: "",
   naverVerification: "",
@@ -83,14 +75,6 @@ export const SITE_SETTINGS: SiteSettings = {
   footerBusinessInfo:
     "미강 인테리어 MIGANG INTERIOR | 대표 최윤환 | 사업자등록번호 219-03-78423",
   privacyPolicy: "",
-  aboutContent: {
-    greeting: "안녕하세요, 미강 인테리어 대표 최윤환입니다.",
-    services: "주거 및 상업공간의 설계·시공",
-    experience: "50년 경력",
-    areas: "서울, 경기, 대구",
-    licenses: "건축사사무소 등록",
-    principles: "정확한 현장 파악, 투명한 견적",
-  },
 };
 
 /** @deprecated Use SITE_SETTINGS */

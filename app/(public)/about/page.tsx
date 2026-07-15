@@ -10,7 +10,6 @@ export const metadata = {
 
 export default async function AboutPage() {
   const settings = await getSiteSettings();
-  const { aboutContent } = settings;
 
   return (
     <div className="page-main">
@@ -20,7 +19,10 @@ export default async function AboutPage() {
         {/* Company */}
         <section>
           <p className="whitespace-pre-line text-sm leading-relaxed">
-            {aboutContent.greeting}
+            안녕하세요, {settings.companyName} 대표 {settings.representative}입니다.
+          </p>
+          <p className="mt-4 whitespace-pre-line text-sm leading-relaxed text-muted">
+            {settings.aboutText}
           </p>
         </section>
 
@@ -28,9 +30,6 @@ export default async function AboutPage() {
         <section>
           <p className="mb-3 text-xs tracking-[0.08em] text-muted uppercase">Services</p>
           <p className="text-sm text-muted">{settings.services.join(" · ")}</p>
-          {aboutContent.services && (
-            <p className="mt-3 text-sm leading-relaxed text-muted">{aboutContent.services}</p>
-          )}
         </section>
 
         <ProcessSteps steps={settings.processSteps} />
