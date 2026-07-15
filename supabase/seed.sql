@@ -182,7 +182,7 @@ INSERT INTO public.site_settings (key, value) VALUES
   ('kakao_url', '"https://pf.kakao.com/_example"'),
   ('naver_blog_url', '"https://m.blog.naver.com/PostList.naver?blogId=jwcbsmg&tab=1"'),
   ('service_areas', '"서울, 경기, 대구"'),
-  ('hero_title', '"We identify spatial issues accurately\nand deliver results built to last."'),
+  ('hero_title', '"We identify spatial issues accurately and deliver results built to last."'),
   ('hero_subtitle', '"Architecture · Interior · Remodeling"'),
   ('hero_image', '"/heroimage-1.jpeg"'),
   ('about_text', '"Migang Architects specializes in design and construction for residential and commercial spaces."'),
