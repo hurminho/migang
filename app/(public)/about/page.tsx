@@ -5,7 +5,7 @@ import { getSiteSettings } from "@/lib/data/site-settings";
 
 export const metadata = {
   title: "About",
-  description: "미강건축 회사 소개",
+  description: "미강 인테리어 회사 소개",
 };
 
 export default async function AboutPage() {

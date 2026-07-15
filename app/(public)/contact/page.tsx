@@ -3,7 +3,7 @@ import { getCategories } from "@/lib/data/projects";
 
 export const metadata = {
   title: "Request a Estimate",
-  description: "미강건축 상담 문의",
+  description: "미강 인테리어 상담 문의",
 };
 
 export default async function ContactPage() {

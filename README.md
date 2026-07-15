@@ -1,4 +1,4 @@
-# 미강건축 포트폴리오 웹사이트
+# 미강 인테리어 포트폴리오 웹사이트
 
 건축·인테리어·공사업체를 위한 미니멀 포트폴리오 사이트입니다.  
 Next.js App Router, Supabase, Tailwind CSS, shadcn/ui 기반으로 구현되었습니다.
@@ -150,4 +150,4 @@ public/
 
 ## 라이선스
 
-Private — 미강건축 내부 사용
+Private — 미강 인테리어 내부 사용

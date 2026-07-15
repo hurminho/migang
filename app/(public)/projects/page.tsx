@@ -8,7 +8,7 @@ interface ProjectsPageProps {
 
 export const metadata = {
   title: "Projects",
-  description: "미강건축 공사사례",
+  description: "미강 인테리어 공사사례",
 };
 
 export default async function ProjectsPage({ searchParams }: ProjectsPageProps) {

@@ -38,7 +38,7 @@ export interface SiteSettings {
 }
 
 export const DEFAULT_SITE_SETTINGS: SiteSettings = {
-  companyName: "미강건축 MIGANG ARCHITECTS",
+  companyName: "미강 인테리어",
   companyNameEn: "MIGANG ARCHITECTS",
   representative: "최윤환",
   businessNumber: "219-03-78423",
@@ -68,19 +68,19 @@ export const DEFAULT_SITE_SETTINGS: SiteSettings = {
     "Construction",
     "Final Inspection",
   ],
-  siteTitle: "미강건축 | 건축·인테리어·리모델링",
-  siteDescription: "미강건축은 건축, 인테리어, 리모델링 전문 업체입니다.",
+  siteTitle: "미강 인테리어 | 건축·인테리어·리모델링",
+  siteDescription: "미강 인테리어은 건축, 인테리어, 리모델링 전문 업체입니다.",
   ogImage: "/placeholders/og.svg",
   gaId: "",
   clarityId: "",
   naverVerification: "",
   googleVerification: "",
-  footerCopyright: "© 2021 미강건축. All rights reserved.",
+  footerCopyright: "© 2021 미강 인테리어. All rights reserved.",
   footerBusinessInfo:
-    "미강건축 | 대표 최윤환 | 사업자등록번호 219-03-78423",
+    "미강 인테리어 | 대표 최윤환 | 사업자등록번호 219-03-78423",
   privacyPolicy: "",
   aboutContent: {
-    greeting: "안녕하세요, 미강건축 대표 최윤환입니다.",
+    greeting: "안녕하세요, 미강 인테리어 대표 최윤환입니다.",
     services: "주거 및 상업공간의 설계·시공",
     experience: "50년 경력",
     areas: "서울, 경기, 대구",
