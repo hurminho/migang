@@ -52,8 +52,6 @@ export const SITE_SETTINGS: SiteSettings = {
     "We understand the true needs of every space and create results designed to last.",
   strengths: [
     "Accurate estimates and schedule management based on site conditions",
-    "Consistent quality control from material selection to finishing",
-    "Construction with full responsibility through after-service completion",
   ],
   services: ["건축", "인테리어", "리모델링", "방수공사", "상업공간", "주거공간"],
   processSteps: [
