@@ -38,7 +38,7 @@ export const SITE_SETTINGS: SiteSettings = {
   companyNameEn: "MIGANG INTERIOR",
   representative: "Choi,Yun-hwan",
   businessNumber: "219-03-78423",
-  phone: "010-9511-3221",
+  phone: "+82 10-9511-3221",
   email: "migang0482@gmail.com",
   address: "대구광역시 달성군 옥포읍 본리로 20길 18-3, 1동",
   kakaoUrl: "https://pf.kakao.com/_example",
@@ -48,19 +48,18 @@ export const SITE_SETTINGS: SiteSettings = {
   heroTitle: "공간의 가능성을 디자인합니다. \nDesigning the Possibilities of Space.",
   heroSubtitle: "Architecture · Interior · Remodeling",
   heroImage: "/heroimage-1.jpeg",
-  aboutText:
-    "건축, 인테리어, 제작까지 공간에 필요한 모든 과정을 직접 완성합니다.\nFrom Architecture to Interior, from Production to Completion.",
+  aboutText: "건축, 인테리어, 제작까지 공간에 필요한 모든 과정을 직접 완성합니다. \nFrom Architecture to Interior, from Production to Completion.",
   strengths: [
     "공간의 이야기를 먼저 듣습니다.",
     "재료 선택부터 작은 마감까지 놓치지 않습니다.",
     "시간이 지나도 편안하고 단단한 공간을 만듭니다.",
     "\nWe listen to the story of each space first.",
-    "We don't miss anything from material selection to small finishing.",
-    "We create spaces that are comfortable and durable over time.",
+    "Every material and finishing details is carefully considered.",
+    "Thoughtfully designed, Built to last.",
   ],
   services: [
     "건축 · 인테리어 · 리모델링 · 상업공간 · 주거공간",
-    "Architectural Design · Interior Design · Remodeling · Commercial Space · Residential Space",
+    "Construction · Interior · Remodeling · Commercial Space · Residential Space",
   ],
   processSteps: [
     "Consultation",
