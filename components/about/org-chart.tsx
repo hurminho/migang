@@ -1,8 +1,8 @@
 const departments = [
-  { role: "Construtors", members: ["최병쇠", "최윤환"] },
-  { role: "Contrators", members: ["배기현"] },
-  { role: "Buyers", members: ["최은신"] },
-  { role: "Officers", members: ["최은슬"] },
+  { role: "Construtors", members: ["Choi, Byeong-soo", "Choi, Yun-hwan"] },
+  { role: "Contrators", members: ["Bae, Gee-hyeon"] },
+  { role: "Buyers", members: ["Choi, Eun-sin"] },
+  { role: "Officers", members: ["Hur, Min-woo", "Eunice Park"] },
 ] as const;
 
 interface OrgChartProps {
