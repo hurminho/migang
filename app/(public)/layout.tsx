@@ -25,8 +25,8 @@ export default async function PublicLayout({
           companyNameEn={settings.companyNameEn}
         />
       </Suspense>
-      <div className="lg:pl-[220px]">
-        <main>{children}</main>
+      <div className="min-w-0 lg:pl-[220px]">
+        <main className="min-w-0 overflow-x-clip">{children}</main>
         <Footer />
       </div>
     </div>
