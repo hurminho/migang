@@ -21,9 +21,6 @@ export default async function AboutPage() {
           <p className="whitespace-pre-line text-sm leading-relaxed">
             안녕하세요, {settings.companyName} 대표 {settings.representative}입니다.
           </p>
-          <p className="mt-4 whitespace-pre-line text-sm leading-relaxed text-muted">
-            {settings.aboutText}
-          </p>
         </section>
 
         {/* Services */}
