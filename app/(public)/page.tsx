@@ -23,7 +23,9 @@ export default async function HomePage() {
 
       {/* Intro */}
       <section className="mt-12 max-w-lg">
-        <p className="text-sm leading-relaxed text-muted">{settings.aboutText}</p>
+        <p className="whitespace-pre-line text-sm leading-relaxed text-muted">
+          {settings.aboutText}
+        </p>
       </section>
 
       {/* Featured Projects */}

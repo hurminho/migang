@@ -36,7 +36,7 @@ export interface SiteSettings {
 export const SITE_SETTINGS: SiteSettings = {
   companyName: "미강 인테리어",
   companyNameEn: "MIGANG INTERIOR",
-  representative: "Choi,Yun-hwan",
+  representative: "Choi, Yun-hwan",
   businessNumber: "219-03-78423",
   phone: "+82 10-9511-3221",
   email: "migang0482@gmail.com",
@@ -48,7 +48,8 @@ export const SITE_SETTINGS: SiteSettings = {
   heroTitle: "공간의 가능성을 디자인합니다. \nDesigning the Possibilities of Space.",
   heroSubtitle: "Architecture · Interior · Remodeling",
   heroImage: "/heroimage-1.jpeg",
-  aboutText: "건축, 인테리어, 제작까지 공간에 필요한 모든 과정을 직접 완성합니다. \nFrom Architecture to Interior, from Production to Completion.",
+  aboutText:
+    "건축, 인테리어, 제작까지 공간에 필요한 모든 과정을 직접 완성합니다.\nFrom Architecture to Interior, from Production to Completion.",
   strengths: [
     "공간의 이야기를 먼저 듣습니다.",
     "재료 선택부터 작은 마감까지 놓치지 않습니다.",
