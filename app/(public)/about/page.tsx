@@ -16,13 +16,6 @@ export default async function AboutPage() {
       <p className="mb-10 text-xs tracking-[0.08em] text-muted uppercase">About</p>
 
       <div className="max-w-2xl space-y-10">
-        {/* Company */}
-        <section>
-          <p className="whitespace-pre-line text-sm leading-relaxed">
-            안녕하세요, {settings.companyName} 대표 {settings.representative}입니다.
-          </p>
-        </section>
-
         {/* Services */}
         <section>
           <p className="mb-3 text-xs tracking-[0.08em] text-muted uppercase">Services</p>
