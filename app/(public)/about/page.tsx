@@ -13,7 +13,10 @@ export default async function AboutPage() {
 
   return (
     <div className="page-main">
-      <p className="mb-10 text-xs tracking-[0.08em] text-muted uppercase">About</p>
+      <p className="mb-4 text-xs tracking-[0.08em] text-muted uppercase">About</p>
+      <p className="mb-10 max-w-2xl whitespace-pre-line text-sm leading-relaxed text-muted">
+        {settings.aboutIntro}
+      </p>
 
       <div className="max-w-2xl space-y-10">
         {/* Services */}

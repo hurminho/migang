@@ -14,6 +14,7 @@ export interface SiteSettings {
   heroSubtitle: string;
   heroImage: string;
   aboutText: string;
+  aboutIntro: string;
   strengths: string[];
   services: string[];
   processSteps: string[];
@@ -50,11 +51,13 @@ export const SITE_SETTINGS: SiteSettings = {
   heroImage: "/heroimage-1.jpeg",
   aboutText:
     "건축, 인테리어, 제작까지 공간에 필요한 모든 과정을 직접 완성합니다.\nFrom Architecture to Interior, from Production to Completion.",
+  aboutIntro:
+    "미강은 아름다울 미(美), 흐를 강(江)의 가치를 공간에 담습니다.\n구조는 견고하게, 디테일은 아름답게 완성합니다.\n\nMIGANG is inspired by the harmony of beauty and flow.\nStrong in structure. Refined in every detail.",
   strengths: [
     "공간의 이야기를 먼저 듣습니다.",
     "재료 선택부터 작은 마감까지 놓치지 않습니다.",
     "시간이 지나도 편안하고 단단한 공간을 만듭니다.",
-    "\nWe listen to the story of each space first.",
+    "\n\nWe listen to the story of each space first.",
     "Every material and finishing details is carefully considered.",
     "Thoughtfully designed, Built to last.",
   ],
