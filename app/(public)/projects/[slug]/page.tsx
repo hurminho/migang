@@ -128,14 +128,14 @@ export default async function ProjectDetailPage({
           </dl>
         </header>
 
-        <div className="relative mb-10 aspect-[4/3] w-full overflow-hidden bg-[#f5f5f5]">
+        <div className="relative mb-10 aspect-[4/3] w-full max-w-[50%] overflow-hidden bg-[#f5f5f5]">
             <Image
               src={coverSrc}
               alt={project.title}
               fill
               priority
               className="object-cover"
-              sizes="(max-width: 1500px) 100vw, 1500px"
+              sizes="(max-width: 1500px) 50vw, 750px"
             />
           </div>
 
@@ -146,7 +146,7 @@ export default async function ProjectDetailPage({
           )}
 
           {galleryImages.length > 0 && (
-            <div className="mb-12">
+            <div className="mb-12 w-full max-w-[50%]">
               <ProjectGallery images={galleryImages} />
             </div>
           )}

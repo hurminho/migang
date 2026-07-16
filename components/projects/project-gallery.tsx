@@ -116,7 +116,7 @@ export function ProjectGallery({ images }: GalleryProps) {
 
   return (
     <>
-      <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-2.5">
         {images.map((img, i) => (
           <button
             key={i}
@@ -128,7 +128,7 @@ export function ProjectGallery({ images }: GalleryProps) {
               src={img.src}
               alt={img.alt ?? ""}
               fill
-              sizes="(max-width: 640px) 100vw, 50vw"
+              sizes="(max-width: 1500px) 50vw, 750px"
               className="object-cover transition group-hover:opacity-90"
             />
             {img.caption && (
