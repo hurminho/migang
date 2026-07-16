@@ -29,7 +29,9 @@ export default async function AboutPage() {
         {/* Services */}
         <section>
           <p className="mb-3 text-xs tracking-[0.08em] text-muted uppercase">Services</p>
-          <p className="text-sm text-muted">{settings.services.join(" · ")}</p>
+          <p className="whitespace-pre-line text-sm text-muted">
+            {settings.services.join("\n")}
+          </p>
         </section>
 
         <ProcessSteps steps={settings.processSteps} />
