@@ -4,6 +4,7 @@ import { getSiteSettings } from "@/lib/data/site-settings";
 export async function AnalyticsScripts() {
   const settings = await getSiteSettings();
   const gaId = settings.gaId || process.env.NEXT_PUBLIC_GA_ID;
+  const adsenseClientId = settings.adsenseClientId;
   const clarityId = settings.clarityId || process.env.NEXT_PUBLIC_CLARITY_ID;
 
   return (
@@ -23,6 +24,14 @@ export async function AnalyticsScripts() {
             `}
           </Script>
         </>
+      ) : null}
+      {adsenseClientId ? (
+        <Script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClientId}`}
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
       ) : null}
       {clarityId ? (
         <Script id="microsoft-clarity" strategy="afterInteractive">

@@ -22,6 +22,7 @@ export interface SiteSettings {
   siteDescription: string;
   ogImage: string;
   gaId: string;
+  adsenseClientId: string;
   clarityId: string;
   naverVerification: string;
   googleVerification: string;
@@ -77,6 +78,7 @@ export const SITE_SETTINGS: SiteSettings = {
   siteDescription: "미강 인테리어는 건축, 인테리어, 리모델링 전문 업체입니다.",
   ogImage: "/og.png",
   gaId: "",
+  adsenseClientId: "ca-pub-8260409557475507",
   clarityId: "",
   naverVerification: "",
   googleVerification: "",
