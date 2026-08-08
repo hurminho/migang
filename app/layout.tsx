@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Toaster } from "@/components/ui/sonner";
 import { AnalyticsScripts } from "@/components/layout/analytics";
 import { getSiteSettings } from "@/lib/data/site-settings";
+import { SITE_SETTINGS } from "@/types/site-settings";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -13,6 +14,14 @@ export const viewport: Viewport = {
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSiteSettings();
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  const other: Record<string, string> = {};
+
+  if (settings.naverVerification) {
+    other["naver-site-verification"] = settings.naverVerification;
+  }
+  if (settings.adsenseClientId) {
+    other["google-adsense-account"] = settings.adsenseClientId;
+  }
 
   return {
     metadataBase: new URL(siteUrl),
@@ -32,10 +41,8 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     verification: {
       google: settings.googleVerification || undefined,
-      other: settings.naverVerification
-        ? { "naver-site-verification": settings.naverVerification }
-        : undefined,
     },
+    other: Object.keys(other).length > 0 ? other : undefined,
   };
 }
 
@@ -44,6 +51,8 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const adsenseClientId = SITE_SETTINGS.adsenseClientId;
+
   return (
     <html lang="ko">
       <head>
@@ -53,6 +62,13 @@ export default async function RootLayout({
           crossOrigin=""
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
         />
+        {adsenseClientId ? (
+          <script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClientId}`}
+            crossOrigin="anonymous"
+          />
+        ) : null}
       </head>
       <body className="min-h-screen antialiased">
         {children}
