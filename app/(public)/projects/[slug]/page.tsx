@@ -2,9 +2,11 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { MarkdownContent } from "@/components/ui/markdown-content";
 import { ProjectGallery } from "@/components/projects/project-gallery";
-import { CtaSection } from "@/components/layout/cta-section";
+import { CtaBanner } from "@/components/layout/cta-banner";
+import { Reveal } from "@/components/ui/reveal";
 import {
   getAdjacentProjects,
   getProjectBySlug,
@@ -12,6 +14,7 @@ import {
 import { getSiteSettings } from "@/lib/data/site-settings";
 import { getPublicStorageUrl } from "@/lib/utils/storage";
 import { absoluteUrl } from "@/lib/utils/index";
+import type { ProjectWithRelations } from "@/types/database";
 
 interface ProjectDetailPageProps {
   params: Promise<{ slug: string }>;
@@ -31,11 +34,10 @@ export async function generateMetadata({
   const title = project.seo_title || project.title;
   const description =
     project.seo_description || project.summary || settings.siteDescription;
-  const ogImage = project.og_image_path
-    ? getPublicStorageUrl("project-images", project.og_image_path)
-    : project.cover_image_path?.startsWith("/")
-      ? project.cover_image_path
-      : getPublicStorageUrl("project-images", project.cover_image_path);
+  const ogImage = getPublicStorageUrl(
+    "project-images",
+    project.og_image_path || project.cover_image_path,
+  );
 
   return {
     title,
@@ -63,19 +65,22 @@ export default async function ProjectDetailPage({
 
   const { prev, next } = await getAdjacentProjects(project);
 
-  const coverSrc = project.cover_image_path?.startsWith("/")
-    ? project.cover_image_path
-    : getPublicStorageUrl("project-images", project.cover_image_path);
+  const coverSrc = getPublicStorageUrl("project-images", project.cover_image_path);
 
   const galleryImages = (project.project_images ?? [])
     .filter((img) => img.image_type === "gallery" || img.image_type === "before" || img.image_type === "after")
     .map((img) => ({
-      src: img.storage_path.startsWith("/")
-        ? img.storage_path
-        : getPublicStorageUrl("project-images", img.storage_path),
+      src: getPublicStorageUrl("project-images", img.storage_path),
       alt: img.alt_text ?? project.title,
       caption: img.caption ?? undefined,
     }));
+
+  const facts = [
+    { label: "Location", value: project.location },
+    { label: "Year", value: project.project_year },
+    { label: "Duration", value: project.duration_text },
+    { label: "Scope", value: project.work_scope },
+  ].filter((fact) => fact.value);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -94,89 +99,113 @@ export default async function ProjectDetailPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <article className="page-main">
-        <header className="mb-8 max-w-lg">
-          {project.category?.name && (
-            <p className="text-xs text-muted">{project.category.name}</p>
-          )}
-          <h1 className="mt-2 text-base font-normal">{project.title}</h1>
-          <dl className="mt-5 space-y-1.5 text-xs text-muted">
-            {project.location && (
-              <div className="flex gap-4">
-                <dt className="w-16 shrink-0">Location</dt>
-                <dd className="text-foreground">{project.location}</dd>
-              </div>
-            )}
-            {project.project_year && (
-              <div className="flex gap-4">
-                <dt className="w-16 shrink-0">Year</dt>
-                <dd className="text-foreground">{project.project_year}</dd>
-              </div>
-            )}
-            {project.duration_text && (
-              <div className="flex gap-4">
-                <dt className="w-16 shrink-0">Duration</dt>
-                <dd className="text-foreground">{project.duration_text}</dd>
-              </div>
-            )}
-            {project.work_scope && (
-              <div className="flex gap-4">
-                <dt className="w-16 shrink-0">Scope</dt>
-                <dd className="text-foreground">{project.work_scope}</dd>
-              </div>
-            )}
-          </dl>
-        </header>
-
-        <div className="project-detail-media relative mb-10 aspect-[4/3] overflow-hidden bg-[#f5f5f5]">
-          <Image
-            src={coverSrc}
-            alt={project.title}
-            fill
-            priority
-            className="object-cover"
-            sizes="(max-width: 1023px) calc(100vw - 2rem), calc((100vw - 220px) / 2)"
-          />
-        </div>
-
-          {project.description && (
-            <div className="prose-content mb-10">
-              <MarkdownContent content={project.description} />
-            </div>
-          )}
-
-          {galleryImages.length > 0 && (
-            <div className="project-detail-media mb-12">
-              <ProjectGallery images={galleryImages} />
-            </div>
-          )}
-
-          <nav className="flex flex-col gap-3 border-t border-border pt-6 text-xs sm:flex-row sm:justify-between">
-            <div>
-              {prev ? (
-                <Link href={`/projects/${prev.slug}`} className="text-link">
-                  ← {prev.title}
-                </Link>
-              ) : (
-                <span />
-              )}
-            </div>
-            <Link href="/projects" className="text-link">
+      <article>
+        <header className="container-site pt-28 pb-10 md:pt-36 md:pb-14">
+          <Reveal>
+            <Link
+              href="/projects"
+              className="group inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-foreground"
+            >
+              <ArrowLeft
+                size={16}
+                className="transition-transform group-hover:-translate-x-1"
+                aria-hidden
+              />
               All projects
             </Link>
-            <div className="text-right">
-              {next ? (
-                <Link href={`/projects/${next.slug}`} className="text-link">
-                  {next.title} →
-                </Link>
-              ) : (
-                <span />
-              )}
-            </div>
-          </nav>
+            {project.category?.name && <p className="eyebrow mt-10">{project.category.name}</p>}
+            <h1 className="mt-4 max-w-4xl text-4xl leading-[1.15] md:text-6xl">{project.title}</h1>
+            {project.summary && (
+              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">{project.summary}</p>
+            )}
+          </Reveal>
+        </header>
 
-        <CtaSection phone={settings.phone} naverBlogUrl={settings.naverBlogUrl} />
+        <Reveal className="container-site">
+          <div className="relative aspect-[4/3] overflow-hidden bg-surface md:aspect-[21/9]">
+            <Image
+              src={coverSrc}
+              alt={project.title}
+              fill
+              preload
+              className="object-cover"
+              sizes="(max-width: 1440px) 100vw, 1440px"
+            />
+          </div>
+        </Reveal>
+
+        <section className="container-site grid gap-12 py-16 md:grid-cols-12 md:py-24">
+          {facts.length > 0 && (
+            <Reveal className="md:col-span-4">
+              <dl className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-1">
+                {facts.map((fact) => (
+                  <div key={fact.label} className="border-t border-border pt-4">
+                    <dt className="eyebrow">{fact.label}</dt>
+                    <dd className="mt-2 text-base">{fact.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </Reveal>
+          )}
+          {project.description && (
+            <Reveal className="md:col-span-7 md:col-start-6" delay={100}>
+              <div className="prose-content">
+                <MarkdownContent content={project.description} />
+              </div>
+            </Reveal>
+          )}
+        </section>
+
+        {galleryImages.length > 0 && (
+          <section className="container-site pb-24 md:pb-32">
+            <ProjectGallery images={galleryImages} />
+          </section>
+        )}
+
+        {(prev || next) && (
+          <nav className="container-site grid gap-6 border-t border-border py-16 md:grid-cols-2 md:py-20">
+            {prev ? <AdjacentLink project={prev} direction="prev" /> : <span className="hidden md:block" />}
+            {next ? <AdjacentLink project={next} direction="next" /> : null}
+          </nav>
+        )}
       </article>
+
+      <CtaBanner phone={settings.phone} />
     </>
+  );
+}
+
+function AdjacentLink({
+  project,
+  direction,
+}: {
+  project: ProjectWithRelations;
+  direction: "prev" | "next";
+}) {
+  const isNext = direction === "next";
+
+  return (
+    <Link
+      href={`/projects/${project.slug}`}
+      className={`group flex items-center gap-5 ${isNext ? "md:flex-row-reverse md:text-right" : ""}`}
+    >
+      <div className="relative aspect-[4/3] w-28 shrink-0 overflow-hidden bg-surface md:w-40">
+        <Image
+          src={getPublicStorageUrl("project-images", project.cover_image_path)}
+          alt={project.title}
+          fill
+          sizes="160px"
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+      </div>
+      <div className="min-w-0">
+        <p className="eyebrow inline-flex items-center gap-2">
+          {!isNext && <ArrowLeft size={14} aria-hidden />}
+          {isNext ? "Next project" : "Previous project"}
+          {isNext && <ArrowRight size={14} aria-hidden />}
+        </p>
+        <p className="mt-2 text-lg font-semibold leading-snug md:text-xl">{project.title}</p>
+      </div>
+    </Link>
   );
 }

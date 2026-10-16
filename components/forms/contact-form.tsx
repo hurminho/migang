@@ -19,6 +19,8 @@ import {
 } from "@/lib/validation/schemas";
 import type { Category } from "@/types/database";
 
+const FIELD_CLASS = "h-12 rounded-md bg-white px-3.5 md:text-base";
+
 interface ContactFormProps {
   categories: Category[];
 }
@@ -131,14 +133,14 @@ export function ContactForm({ categories }: ContactFormProps) {
       <div className="grid gap-6 sm:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="name">이름 *</Label>
-          <Input id="name" {...form.register("name")} />
+          <Input className={FIELD_CLASS} id="name" {...form.register("name")} />
           {form.formState.errors.name && (
             <p className="text-xs text-red-600">{form.formState.errors.name.message}</p>
           )}
         </div>
         <div className="space-y-2">
           <Label htmlFor="phone">연락처 *</Label>
-          <Input id="phone" placeholder="010-1234-5678" {...form.register("phone")} />
+          <Input className={FIELD_CLASS} id="phone" placeholder="010-1234-5678" {...form.register("phone")} />
           {form.formState.errors.phone && (
             <p className="text-xs text-red-600">{form.formState.errors.phone.message}</p>
           )}
@@ -148,7 +150,7 @@ export function ContactForm({ categories }: ContactFormProps) {
       <div className="grid gap-6 sm:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="email">이메일</Label>
-          <Input id="email" type="email" {...form.register("email")} />
+          <Input className={FIELD_CLASS} id="email" type="email" {...form.register("email")} />
         </div>
         <div className="space-y-2">
           <Label htmlFor="category_id">공사 유형</Label>
@@ -159,7 +161,8 @@ export function ContactForm({ categories }: ContactFormProps) {
               form.setValue("category_id", event.target.value || undefined)
             }
             className={cn(
-              "h-8 w-full min-w-0 rounded-lg border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 md:text-sm dark:bg-input/30",
+              "w-full min-w-0 border border-input py-1 text-base transition-colors outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50",
+              FIELD_CLASS,
             )}
           >
             <option value="">선택</option>
@@ -175,17 +178,22 @@ export function ContactForm({ categories }: ContactFormProps) {
       <div className="grid gap-6 sm:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="address">공사 주소</Label>
-          <Input id="address" {...form.register("address")} />
+          <Input className={FIELD_CLASS} id="address" {...form.register("address")} />
         </div>
         <div className="space-y-2">
           <Label htmlFor="desired_date">예상 공사 시기</Label>
-          <Input id="desired_date" placeholder="예: 2026년 3월" {...form.register("desired_date")} />
+          <Input className={FIELD_CLASS} id="desired_date" placeholder="예: 2026년 3월" {...form.register("desired_date")} />
         </div>
       </div>
 
       <div className="space-y-2">
         <Label htmlFor="message">문의 내용 *</Label>
-        <Textarea id="message" rows={6} {...form.register("message")} />
+        <Textarea
+          id="message"
+          rows={6}
+          className="min-h-40 rounded-md bg-white px-3.5 py-3 md:text-base"
+          {...form.register("message")}
+        />
         {form.formState.errors.message && (
           <p className="text-xs text-red-600">{form.formState.errors.message.message}</p>
         )}
@@ -194,6 +202,7 @@ export function ContactForm({ categories }: ContactFormProps) {
       <div className="space-y-2">
         <Label htmlFor="files">사진 첨부 (최대 5개, 10MB 이하)</Label>
         <Input
+          className={cn(FIELD_CLASS, "py-2.5")}
           id="files"
           type="file"
           multiple
@@ -225,7 +234,11 @@ export function ContactForm({ categories }: ContactFormProps) {
         <p className="text-xs text-red-600">{form.formState.errors.consent.message}</p>
       )}
 
-      <Button type="submit" disabled={submitting} className="w-full sm:w-auto">
+      <Button
+        type="submit"
+        disabled={submitting}
+        className="h-12 w-full rounded-full bg-ink px-8 text-sm text-white hover:bg-ink/85 sm:w-auto"
+      >
         {submitting ? "접수 중..." : "문의 접수"}
       </Button>
     </form>

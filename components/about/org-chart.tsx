@@ -11,22 +11,25 @@ interface OrgChartProps {
 
 export function OrgChart({ ceoName }: OrgChartProps) {
   return (
-    <section>
-      <p className="mb-4 text-xs tracking-[0.08em] text-muted uppercase">Organization</p>
-      <div className="text-sm">
-        <div>
-          <p className="font-medium">CEO</p>
-          {ceoName && <p className="mt-0.5 text-muted">{ceoName}</p>}
-        </div>
-        <ul className="mt-4 space-y-3 border-l border-border pl-4">
-          {departments.map(({ role, members }) => (
-            <li key={role}>
-              <p className="font-medium">{role}</p>
-              <p className="mt-0.5 text-muted">{members.join(", ")}</p>
-            </li>
-          ))}
-        </ul>
+    <div>
+      <div className="bg-ink p-6 text-white md:p-8">
+        <p className="eyebrow text-white/50">CEO</p>
+        {ceoName && <p className="mt-3 text-xl font-semibold">{ceoName}</p>}
       </div>
-    </section>
+      <ul className="grid grid-cols-2 gap-px border-x border-b border-border bg-border md:grid-cols-4">
+        {departments.map(({ role, members }) => (
+          <li key={role} className="bg-white p-6">
+            <p className="eyebrow">{role}</p>
+            <ul className="mt-3 space-y-1">
+              {members.map((member) => (
+                <li key={member} className="text-base">
+                  {member}
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }

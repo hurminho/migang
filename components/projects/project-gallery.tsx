@@ -116,20 +116,20 @@ export function ProjectGallery({ images }: GalleryProps) {
 
   return (
     <>
-      <div className="grid w-full min-w-0 grid-cols-1 gap-2.5">
+      <div className="grid w-full min-w-0 grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
         {images.map((img, i) => (
           <button
             key={i}
             type="button"
             onClick={() => setLightboxIndex(i)}
-            className="group relative aspect-[4/3] w-full min-w-0 overflow-hidden bg-[#f5f5f5] text-left"
+            className="group relative aspect-[4/3] w-full min-w-0 cursor-zoom-in overflow-hidden bg-surface text-left"
           >
             <Image
               src={img.src}
               alt={img.alt ?? ""}
               fill
-              sizes="(max-width: 1023px) calc(100vw - 2rem), calc((100vw - 220px) / 2)"
-              className="object-cover transition group-hover:opacity-90"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
             />
             {img.caption && (
               <span className="absolute bottom-0 left-0 right-0 bg-black/40 px-3 py-2 text-xs text-white opacity-0 transition group-hover:opacity-100">

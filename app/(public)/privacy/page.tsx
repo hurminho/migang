@@ -1,13 +1,12 @@
 import { getSiteSettings } from "@/lib/data/site-settings";
 import { MarkdownContent } from "@/components/ui/markdown-content";
+import { PageHeader } from "@/components/layout/page-header";
 
 export const metadata = {
   title: "개인정보처리방침",
 };
 
 const DEFAULT_PRIVACY = `
-## 개인정보처리방침
-
 미강 인테리어(이하 "회사")은 상담 문의 서비스 제공을 위해 아래와 같이 개인정보를 수집·이용합니다.
 
 ### 1. 수집하는 개인정보 항목
@@ -33,11 +32,11 @@ export default async function PrivacyPage() {
   const content = settings.privacyPolicy || DEFAULT_PRIVACY;
 
   return (
-    <div className="page-main">
-      <p className="mb-8 text-xs tracking-[0.08em] text-muted uppercase">
-        Privacy Policy
-      </p>
-      <MarkdownContent content={content} className="prose-content" />
-    </div>
+    <>
+      <PageHeader eyebrow="Privacy Policy" title="개인정보처리방침" />
+      <div className="container-site pb-24 md:pb-32">
+        <MarkdownContent content={content} className="prose-content border-t border-border pt-10" />
+      </div>
+    </>
   );
 }
